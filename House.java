@@ -83,6 +83,10 @@ public class House extends Building {
     return this.name + " house has a dining room : " + this.hasDiningRoom;
   }
 
+  /**
+   * Main
+   * @param args
+   */
   public static void main(String[] args) {
     House gillett = new House("Gillet", "54 Elm", 5, true);
     System.out.println(gillett);

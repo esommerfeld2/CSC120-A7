@@ -80,10 +80,18 @@ public class Cafe extends Building {
         this.nCups += nCups;
     }
 
+    /**
+     * To String
+     * @return the coffee, sugar, cream, and cups available
+     */
     public String toString() {
         return("We have " + nCoffeeOunces + " oz of coffee, " + nSugarPackets + " sugar packets, " + nCreams + " creams, and " + nCups + " cups.");  
     }
     
+    /**
+     * Main
+     * @param args
+     */
     public static void main(String[] args) {
         Cafe aAndE= new Cafe("AandE", "57312", 3, 12, 1, 1, 2);
         //Testing Constructor 12, 1, 1, 2
