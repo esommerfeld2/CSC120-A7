@@ -32,26 +32,37 @@ public class Cafe extends Building {
      * @param nCreams in coffee
      */
     public void sellCoffee(int size, int nSugarPackets, int nCreams){
+        
+        //Coffee
         if(this.nCoffeeOunces< size){
             restock(12, 0,0,0);
-            if(this.nSugarPackets < nSugarPackets){
-                restock(0,10,0,0);
-                if(this.nCreams < nCreams){
-                    restock(0,0,10,0);
-                    if(this.nCups < 1) {
-                        restock(0,0,0,10);
-                    } else {
-                        //do nothing
-                    }
-                } else {
-                    this.nCreams -= nCreams;
-                }
-            } else {
-                this.nSugarPackets -= nSugarPackets;
-            }
-            
+            this.nCoffeeOunces -= size;
         } else {
             this.nCoffeeOunces -= size; 
+        } 
+
+        //Sugar
+        if(this.nSugarPackets < nSugarPackets){
+            restock(0,10,0,0);
+            this.nSugarPackets -= nSugarPackets;
+        } else {
+            this.nSugarPackets -= nSugarPackets;
+        }
+
+        //Cream
+        if(this.nCreams < nCreams){
+            restock(0,0,10,0);
+            this.nCreams -= nCreams;
+        } else {
+            this.nCreams -= nCreams;
+        }
+
+        //Cups
+        if(this.nCups < 1) {
+            restock(0,0,0,10);
+            this.nCups -= 1;
+        } else {
+            this.nCups -= 1;
         }
     }
 
@@ -92,8 +103,9 @@ public class Cafe extends Building {
         //restock cream 2,9,9,7
         aAndE.sellCoffee(4,0,2);
         System.out.println(aAndE);
-        //BROKEN FIX!!
-
+        //last test use all 2, 7, 6, 6
+        aAndE.sellCoffee(12,2,3);
+        System.out.println(aAndE);
     }
     
 }
